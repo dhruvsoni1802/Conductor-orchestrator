@@ -13,7 +13,7 @@ export function useDecomposer() {
 
     try {
       // Call the LLM to decompose the requirement into tasks.
-      const res = callOpenRouter(DecomposePrompt(requirement));
+      const res = await callOpenRouter(DecomposePrompt(requirement));
 
       // Parse the response into a JSON object.
       const text = res.replace(/```json|```/g, "").trim();
