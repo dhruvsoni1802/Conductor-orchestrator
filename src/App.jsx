@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { useDecomposer } from "./hooks/useDecomposer";
-import TaskGraph from "./components/TaskGraph";
+import { useQueue } from "./hooks/useQueue";
 import TaskCard from "./components/TaskCard";
+import TaskGraph from "./components/TaskGraph";
 import "./App.css";
 
 export default function App() {
   const [requirement, setRequirement] = useState("");
   const { tasks, status, decompose } = useDecomposer();
+  const { queue, initQueue } = useQueue(tasks);
 
   function handleSubmit() {
     if (requirement.trim()) decompose(requirement);
@@ -32,6 +34,13 @@ export default function App() {
         >
           {status === "loading" ? "Decomposing..." : "Decompose"}
         </button>
+
+        {status === "done" && (
+          <button className="button-secondary" onClick={initQueue}>
+            Run Queue
+          </button>
+        )}
+
         {status === "done" && (
           <span className="status">{tasks.length} tasks · sorted by dependency</span>
         )}
@@ -45,7 +54,7 @@ export default function App() {
           <TaskGraph tasks={tasks} />
           <p className="section-label">Tasks in execution order</p>
           <div className="task-list">
-            {tasks.map(task => (
+            {(queue.length > 0 ? queue : tasks).map(task => (
               <TaskCard key={task.id} task={task} />
             ))}
           </div>

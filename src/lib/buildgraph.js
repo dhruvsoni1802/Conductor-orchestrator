@@ -3,7 +3,7 @@ export function buildGraph(tasks) {
   // Build the nodes for the graph.
   const nodes = tasks.map((task, i) => ({
     id: task.id,
-    position: { x: i * 200, y: task.dependencies.length === 0 ? 0 : 200 },
+    position: { x: i * 200, y: task.dependencies.length === 0 ? 0 : 200 * task.dependencies.length },
     data: { label: `${task.id}: ${task.name}` },
   }));
 

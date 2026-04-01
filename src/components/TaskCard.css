@@ -80,3 +80,25 @@
   word-break: break-word;
   line-height: 1.5;
 }
+
+.queue-status {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-left: auto;
+}
+
+.queue-status.queued {
+  background: #f0f0f0;
+  color: #888;
+}
+
+.queue-status.in-progress {
+  background: #fffbeb;
+  color: #d97706;
+}
+
+.queue-status.done {
+  background: #f0fdf4;
+  color: #16a34a;
+}
