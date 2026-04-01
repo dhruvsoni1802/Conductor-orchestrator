@@ -7,13 +7,13 @@ export function useDecomposer() {
   const [tasks, setTasks] = useState([]);
   const [status, setStatus] = useState("idle"); // idle, loading, done, error
 
-  async function decompose(requirement) {
+  async function decompose(requirement, apiKey) {
     setStatus("loading");
     setTasks([]);
 
     try {
       // Call the LLM to decompose the requirement into tasks.
-      const res = await callOpenRouter(DecomposePrompt(requirement));
+      const res = await callOpenRouter(DecomposePrompt(requirement), apiKey);
 
       // Parse the response into a JSON object.
       const text = res.replace(/```json|```/g, "").trim();

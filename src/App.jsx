@@ -7,17 +7,27 @@ import "./App.css";
 
 export default function App() {
   const [requirement, setRequirement] = useState("");
+  const [apiKey, setApiKey] = useState("");
   const { tasks, status, decompose } = useDecomposer();
   const { queue, initQueue } = useQueue(tasks);
 
   function handleSubmit() {
-    if (requirement.trim()) decompose(requirement);
+    if (requirement.trim() && apiKey.trim()) decompose(requirement, apiKey);
   }
 
   return (
     <div className="app">
       <h1 className="title">Conductor Orchestrator</h1>
       <p className="subtitle">Describe a feature and we'll break it into parallel agent tasks</p>
+
+      <input
+        className="input"
+        type="password"
+        placeholder="OpenRouter API key (sk-or-...)"
+        value={apiKey}
+        onChange={e => setApiKey(e.target.value)}
+        autoComplete="off"
+      />
 
       <textarea
         className="textarea"
@@ -30,7 +40,7 @@ export default function App() {
         <button
           className="button"
           onClick={handleSubmit}
-          disabled={status === "loading"}
+          disabled={status === "loading" || !apiKey.trim()}
         >
           {status === "loading" ? "Decomposing..." : "Decompose"}
         </button>
