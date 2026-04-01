@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDecomposer } from "./hooks/useDecomposer";
+import TaskGraph from "./components/TaskGraph";
 import TaskCard from "./components/TaskCard";
 import "./App.css";
 
@@ -41,6 +42,7 @@ export default function App() {
 
       {tasks.length > 0 && (
         <>
+          <TaskGraph tasks={tasks} />
           <p className="section-label">Tasks in execution order</p>
           <div className="task-list">
             {tasks.map(task => (
