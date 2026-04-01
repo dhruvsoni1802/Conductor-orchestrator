@@ -1,0 +1,83 @@
+.app {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 500;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #aaa;
+  margin-bottom: 1.5rem;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 110px;
+  padding: 12px;
+  font-size: 14px;
+  font-family: system-ui, sans-serif;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  resize: vertical;
+  color: #111;
+  background: #fff;
+  line-height: 1.6;
+  outline: none;
+}
+
+.textarea:focus {
+  border-color: #bbb;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.button {
+  padding: 8px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background: #111;
+  color: #fff;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #333;
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.status {
+  font-size: 13px;
+  color: #aaa;
+}
+
+.section-label {
+  font-size: 11px;
+  color: #bbb;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 1.5rem 0 10px;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
