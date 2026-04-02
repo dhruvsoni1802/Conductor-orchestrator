@@ -7,10 +7,10 @@ Describe a feature requirement in plain English. The orchestrator breaks it into
 
 ## How it works
 
-1. **Decompose** — An LLM breaks your requirement into concrete coding tasks, each with a name, description, dependencies, files touched, and a ready-to-use agent prompt
-2. **Sort** — Tasks are ordered using topological sort (Kahn's algorithm) so no task runs before its dependencies are complete
-3. **Visualize** — A DAG shows the relationships between tasks at a glance
-4. **Run** — The queue simulation dispatches tasks in order, a task only starts when all its dependencies are done
+1. **Decompose** : An LLM breaks your requirement into concrete coding tasks, each with a name, description, dependencies, files touched, and a ready-to-use agent prompt
+2. **Sort** : Tasks are ordered using topological sort (Kahn's algorithm) so no task runs before its dependencies are complete
+3. **Visualize** : A DAG shows the relationships between tasks at a glance
+4. **Run** : The queue simulation dispatches tasks in order, a task only starts when all its dependencies are done
 
 ## Stack
 
